@@ -1,8 +1,0 @@
-          name          |                                                bio                                                 | id 
-------------------------+----------------------------------------------------------------------------------------------------+----
- Ursula La Multa        | Ursula La Multa is an expert on bears, bear abundance, and bear accessories.                       |  1
- Rudolf von Treppenwitz | Rudolf von Treppenwitz is a nonprofitable disorganizer specializing in procrastinatory operations. |  2
- Anonymous Contributor  | Anonymous Contributor's parents had unusual taste in names.                                        |  3
- Markoff Chaney         | Markoff Chaney is the product of random genetics.                                                  |  4
-(4 rows)
-

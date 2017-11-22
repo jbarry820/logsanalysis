@@ -1,4 +1,4 @@
-# "Database code" for the DB Forum.
+# "Database code" for the Logs Analysis Project
 import psycopg2
 
 DBNAME = "news"
@@ -14,7 +14,7 @@ def top_three_articles():
 def most_pop_authors():
   db = psycopg2.connect(database=DBNAME)
   c = db.cursor()
-  c.execute("select authors.name, article_views.article_views from authors join article_views on authors.id = article_views.author;")
+  c.execute("select authors.name, article_views.article_views from authors join article_views on authors.id = article_views.author")
   rows=c.fetchall()
   db.close()
   return rows
