@@ -1,4 +1,4 @@
-# Version Control with Git
+# Logs Analysis Project
 
 This is the repo for [Udacity's Logs Analysis Project]() in the Full
 Stack Web Developer Nanodegree Program. This file explains how to use
