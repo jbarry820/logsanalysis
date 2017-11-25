@@ -1,11 +1,21 @@
 # Version Control with Git
 
-This is the repo for [Udacity's Logs Analysis Project]() in the Full Stack Web Developer Nanodegree Program. This file explains how to use the files that are included.
+This is the repo for [Udacity's Logs Analysis Project]() in the Full
+Stack Web Developer Nanodegree Program. This file explains how to use
+the files that are included.
 
 ## Table of Contents
 
 * [Instructions](#instructions)
 * [Creator](#creators)
+
+## How Views Were Created
+
+* article_view was created by  - "CREATE OR REPLACE VIEW article_views AS SELECT articles.author, count(*) AS
+article_views FROM log, articles WHERE articles.slug = substring(log.path,10)
+GROUP BY articles.author limit 5;"
+* status_date view was created by - "CREATE OR REPLACE VIEW status_date AS SELECT id, status, date(time)
+FROM log;"
 
 ## Instructions
 
