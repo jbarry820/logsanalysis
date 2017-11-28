@@ -28,8 +28,7 @@ def most_pop_authors():
 def days_most_errors():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
-    c.execute("select date, count(date) from status_date \
-      group by date order by count(date) desc")
+    c.execute('select * from error_view where "Error_Percent" > 1')
     rows = c.fetchall()
     db.close()
     return rows
