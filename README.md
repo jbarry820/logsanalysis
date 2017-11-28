@@ -41,6 +41,8 @@ most_pop_authors() and days_most_errors()
 With the help of:
 
 * Udacity videos
-* Udacity Forums
+* Udacity Forums - johan.soetens helped by guiding me toward using "Case"
 * The Python Mega Course from Udemy
 * Online research
+* Github repo "https://github.com/sagarchoudhary96/Log-Analysis" - This helped me
+understand how to use Case for the question on errors.
