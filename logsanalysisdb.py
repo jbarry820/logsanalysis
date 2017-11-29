@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # "Database code" for the Logs Analysis Project
 import psycopg2
 
@@ -7,8 +9,7 @@ DBNAME = "news"
 def top_three_articles():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
-    c.execute("SELECT path, COUNT(*) FROM log GROUP BY path \
-      ORDER BY COUNT DESC LIMIT 3")
+    c.execute("""SELECT * FROM article_views""")
     rows = c.fetchall()
     db.close()
     return rows
@@ -17,9 +18,7 @@ def top_three_articles():
 def most_pop_authors():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
-    c.execute("select authors.name, article_views.article_views \
-      from authors join article_views \
-      on authors.id = article_views.author")
+    c.execute("""SELECT * FROM authors_view""")
     rows = c.fetchall()
     db.close()
     return rows

@@ -11,16 +11,35 @@ the files that are included.
 
 ## How Views Were Created
 
-* article_view was created by  - "CREATE OR REPLACE VIEW article_views AS
-SELECT articles.author, count(*) AS article_views FROM log, articles WHERE
-articles.slug = substring(log.path,10)
-GROUP BY articles.author limit 5;"
-* status_date view was created by - "CREATE OR REPLACE VIEW status_date AS
-SELECT id, status, date(time) FROM log;"
-* error_view was created by "create or replace view error_view as select
-date,round(100.0*sum(case status_date.status when '200 OK' then 0 else 1 end)
-/count(status_date.status),3) as "Error_Percent" from status_date group by
-date order by "Error_Percent" desc;"
+* article_view view
+	"CREATE OR REPLACE VIEW article_views
+        AS
+        SELECT
+        articles.title, authors.name as author,
+        count(*) AS article_views
+        FROM log, articles, authors
+        WHERE articles.slug = "substring"(log.path, 10) and authors.id = articles.author
+        GROUP BY articles.title, articles.author, authors.name
+        ORDER BY (COUNT(*)) DESC limit 3;"
+* status_date view
+"CREATE OR REPLACE VIEW status_date
+	AS
+	SELECT id, status, date(time) FROM log;"
+* authors_view view
+	CREATE OR REPLACE VIEW authors_view
+	AS
+	select authors.name as Author,
+	count(*) as Views
+	from log, articles, authors
+	where articles.slug = "substring"(log.path, 10) and authors.id = articles.author
+	group by authors.name
+	order by (count(*)) desc;
+* error_view view -
+"create or replace view error_view
+	as select
+	date,round(100.0*sum(case status_date.status when '200 OK' then 0 else 1 end)
+	/count(status_date.status),3) as "Error_Percent" from status_date group by
+	date order by "Error_Percent" desc;"
 
 ## Instructions
 
