@@ -33,7 +33,7 @@ the files that are included.
 	from log, articles, authors
 	where articles.slug = "substring"(log.path, 10) and authors.id = articles.author
 	group by authors.name
-	order by (count(*)) desc;
+	order by (count(*)) desc limit 3;
 * error_view view -
 "create or replace view error_view
 	as select
